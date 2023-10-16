@@ -1,6 +1,10 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Menu from '../components/Menu/Menu.astro';
+import perroCorrea from '@assets/images/perro-correa.png';
+import left from '@assets/images/left.webp';
+import center from '@assets/images/center.webp';
+import rigth from '@assets/images/rigth.webp';
 ---
 
 <Layout title="Welcome to Astro.">
@@ -21,7 +25,7 @@ import Menu from '../components/Menu/Menu.astro';
         <div></div>
         <p class="whitespace-nowrap text-3xl font-light">Gaston Ortiz</p>
         <img
-          src="../../src/assets/images/perro-correa.png"
+          src={perroCorrea.src}
           alt="Perro pidiendo salir a pasear"
         />
       </section>
@@ -31,7 +35,7 @@ import Menu from '../components/Menu/Menu.astro';
           <img
             height="100%"
             width="160"
-            src="../../src/assets/images/left.webp"
+            src={left.src}
             alt=""
           />
         </div>
@@ -39,7 +43,7 @@ import Menu from '../components/Menu/Menu.astro';
           <img
             width="150"
             height="100%"
-            src="../../src/assets/images/center.webp"
+            src={center.src}
             alt=""
           />
         </div>
@@ -47,7 +51,7 @@ import Menu from '../components/Menu/Menu.astro';
           <img
             width="150"
             height="100%"
-            src="../../src/assets/images/rigth.webp"
+            src={rigth.src}
             alt=""
           />
         </div>
