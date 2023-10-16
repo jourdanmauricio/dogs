@@ -1,0 +1,29 @@
+---
+const dogs = [
+  {
+    src: '/dogs/images/adoption-1.jpg',
+  },
+  {
+    src: '/dogs/images/adoption-2.jpg',
+  },
+];
+---
+
+<article
+  class="w-full max-w-[400px] h-fit shadow mx-auto bg-slate-50 text-slate-900 flex flex-col sm:flex-row"
+>
+  <div class="w-[250px] h-[250px] p-5">
+    <img
+      class="w-full h-[200px] group-hover:scale-110 transition duration-500 object-contain"
+      width="300"
+      height="100%"
+      src={dogs[0].src}
+      alt=""
+    />
+  </div>
+  <div>
+    <p>Holas</p>
+    <p>Holas</p>
+    <p>Holas</p>
+  </div>
+</article>

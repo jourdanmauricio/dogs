@@ -1,0 +1,188 @@
+---
+import Menu2 from '../Menu/Menu2.astro';
+import perroCorrea from '@assets/images/perro-correa.png';
+import left from '@assets/images/left.webp';
+import center from '@assets/images/center.webp';
+import rigth from '@assets/images/rigth.webp';
+---
+
+<div class="hero overflow-hidden">
+  <div class="relative h-screen w-full max-w-7xl mx-auto">
+    <section class="template-grid absolute z-10 w-full h-screen">
+      <Menu2 />
+
+      <section
+        class="main-content flex flex-col justify-center p-4 sm:pl-20 text-slate-50 z-10"
+      >
+        <p class="text-4xl font-light">Paseamos tu</p>
+        <h1 class="text-5xl pl-8">Mascota!</h1>
+        <p class="text-xl font-light pt-8">
+          Ofrecemos el mejor servicio para su mascota en La Plata. Contáctanos
+          hoy y reserva un servicio.
+        </p>
+      </section>
+      <section class="side-content">
+        <p class="whitespace-nowrap text-3xl font-light text-yellow-300">
+          Gaston Ortiz
+        </p>
+        <img
+          class="w-full h-full object-contain"
+          src={perroCorrea.src}
+          alt="Perro pidiendo salir a pasear"
+        />
+      </section>
+
+      <article class="footer w-full h-full flex justify-center items-end">
+        <div class="h-full w-full relative flex justify-center items-end">
+          <img
+            class="object-cover w-auto h-full"
+            src={left.src}
+            alt=""
+          />
+        </div>
+        <div class="h-full w-full relative flex justify-center items-end">
+          <img
+            class="object-cover w-auto h-[70%]"
+            src={center.src}
+            alt=""
+          />
+        </div>
+        <div class="h-full w-full relative flex justify-center items-end">
+          <img
+            class="object-cover w-auto h-full"
+            src={rigth.src}
+            alt=""
+          />
+        </div>
+      </article>
+    </section>
+  </div>
+</div>
+
+<style>
+  .hero {
+    height: 100vh;
+    background-color: black;
+  }
+
+  .template-grid {
+    display: grid;
+    grid-template-columns: 55% 45%;
+    grid-template-rows: 20% 50% 30%;
+    grid-template-areas:
+      'nav     aside'
+      'main    aside'
+      'footer  aside';
+  }
+
+  @media (max-width: 767px) {
+    .template-grid {
+      grid-template-columns: 100%;
+      grid-template-rows: 15% 60% 25%;
+      grid-template-areas:
+        'nav'
+        'main'
+        'footer';
+    }
+  }
+
+  .footer {
+    grid-area: footer;
+    animation: footer 0.8s ease-in-out forwards;
+  }
+
+  .footer div img {
+    transform: scale(1); /* translateY(0px) */
+    transition: transform 0.8s;
+  }
+
+  .footer div:hover img {
+    cursor: pointer;
+    transform: scale(1.1); /* translateY(-20px)  */
+    transition: transform 0.3s;
+  }
+
+  @keyframes footer {
+    0% {
+      transform: translateY(250px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
+
+  .main-content {
+    grid-area: main;
+    animation: main-content 0.5s ease-in-out;
+  }
+
+  @keyframes main-content {
+    0% {
+      transform: translateY(20px);
+      scale: 1.2;
+    }
+    100% {
+      transform: translateY(0px);
+      scale: 1;
+    }
+  }
+
+  .navbar {
+    grid-area: nav;
+  }
+
+  .navbar__content {
+    animation: navbar 0.8s ease-in-out;
+  }
+
+  @keyframes navbar {
+    0% {
+      transform: translateY(-200px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
+
+  .side-content {
+    grid-area: aside;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    align-items: center;
+  }
+
+  .side-content p {
+    transform: rotate(-90deg);
+    grid-row: 1 / 2;
+    grid-column: 1 / 2;
+    opacity: 0;
+    animation-name: side-content-text;
+    animation-duration: 0.8s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+  }
+
+  .side-content img {
+    grid-row: 1 / 2;
+    grid-column: 1 / 7;
+    animation: side-content-img 0.8s ease-in-out;
+  }
+
+  @keyframes side-content-img {
+    0% {
+      transform: translateX(600px);
+    }
+    100% {
+      transform: translateX(0px);
+    }
+  }
+
+  @keyframes side-content-text {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+</style>

@@ -1,0 +1,35 @@
+---
+import Separator from '@components/Separator/Separator.astro';
+import CardAdoption from './CardAdoption.astro';
+
+const dog = [
+  { src: '/dogs/images/adoption-1.jpg' },
+  { src: '/dogs/images/adoption-2.jpg' },
+];
+---
+
+<section
+  class="relative h-full bg-[url(/dogs/images/bg.jpg)] bg-cover bg-center bg-no-repeat bg-fixed"
+>
+  <div class="absolute h-full w-full top-0 bg-black opacity-70"></div>
+
+  <div class="py-20 h-[900px]">
+    <Separator
+      title="Adopción"
+      textColor="text-slate-50"
+      iconColor="text-slate-50"
+      lineTopColor="before:bg-slate-50"
+      lineBottomColor="after:bg-slate-50"
+    />
+
+    <div class="absolute text-white mt-10 w-full max-w-7xl mx-auto px-10">
+      <h2 class="text-2xl text-center text-slate-50">
+        Adoptar es un acto de <span class="text-teal-500">amor</span>
+      </h2>
+
+      <div class="pt-20 flex flex-col sm:flex-row gap-4 w-full">
+        <CardAdoption />
+      </div>
+    </div>
+  </div>
+</section>
