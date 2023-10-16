@@ -1,6 +1,11 @@
 ---
 import Layout from '@layouts/Layout.astro';
 import Menu2 from '@components/Menu/Menu2.astro';
+import perroCorrea from '@assets/images/perro-correa.png';
+import left from '@assets/images/left.webp';
+import center from '@assets/images/center.webp';
+import rigth from '@assets/images/rigth.webp';
+import paws from '@assets/images/paws.svg';
 ---
 
 <Layout title="Welcome to Astro.">
@@ -25,7 +30,7 @@ import Menu2 from '@components/Menu/Menu2.astro';
           </p>
           <img
             class="w-full h-full object-contain"
-            src="../../src/assets/images/perro-correa.png"
+            src={perroCorrea.src}
             alt="Perro pidiendo salir a pasear"
           />
         </section>
@@ -34,21 +39,21 @@ import Menu2 from '@components/Menu/Menu2.astro';
           <div class="h-full w-full relative flex justify-center items-end">
             <img
               class="object-cover w-auto h-full"
-              src="../../src/assets/images/left.webp"
+              src={left.src}
               alt=""
             />
           </div>
           <div class="h-full w-full relative flex justify-center items-end">
             <img
               class="object-cover w-auto h-[70%]"
-              src="../../src/assets/images/center.webp"
+              src={center.src}
               alt=""
             />
           </div>
           <div class="h-full w-full relative flex justify-center items-end">
             <img
               class="object-cover w-auto h-full"
-              src="../../src/assets/images/rigth.webp"
+              src={rigth.src}
               alt=""
             />
           </div>
@@ -60,13 +65,13 @@ import Menu2 from '@components/Menu/Menu2.astro';
     <div class="pt-20 flex justify-center gap-4">
       <img
         class="w-10"
-        src="../../src/assets/images/paws.svg"
+        src={paws.src}
         alt=""
       />
       <h2 class="text-3xl text-center uppercase">Calidad y experiencia</h2>
       <img
-        class="w-10 text-yellow-700"
-        src="../../src/assets/images/paws.svg"
+        class="w-10"
+        src={paws.src}
         alt=""
       />
     </div>
