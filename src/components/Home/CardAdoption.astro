@@ -1,29 +1,123 @@
 ---
-const dogs = [
-  {
-    src: '/dogs/images/adoption-1.jpg',
-  },
-  {
-    src: '/dogs/images/adoption-2.jpg',
-  },
+import 'node_modules/@glidejs/glide/dist/css/glide.core.min.css';
+import 'node_modules/@glidejs/glide/dist/css/glide.theme.min.css';
+import ItemAdoption from './ItemAdoption.astro';
+
+const petsAdoption = [
+  { id: 0, title: 'Dogui', src: '/dogs/images/adoption-1.jpg' },
+  { id: 1, title: 'Bobi', src: '/dogs/images/adoption-2.jpg' },
+  { id: 2, title: 'Mimi', src: '/dogs/images/adoption-3.jpg' },
+  { id: 3, title: 'Hermes', src: '/dogs/images/adoption-4.jpg' },
+  { id: 4, title: 'Gastón', src: '/dogs/images/adoption-1.jpg' },
+  { id: 5, title: 'Bobi', src: '/dogs/images/adoption-2.jpg' },
 ];
 ---
 
-<article
-  class="w-full max-w-[400px] h-fit shadow mx-auto bg-slate-50 text-slate-900 flex flex-col sm:flex-row"
->
-  <div class="w-[250px] h-[250px] p-5">
-    <img
-      class="w-full h-[200px] group-hover:scale-110 transition duration-500 object-contain"
-      width="300"
-      height="100%"
-      src={dogs[0].src}
-      alt=""
-    />
+<div class="glide">
+  <div
+    class="glide__track"
+    data-glide-el="track"
+  >
+    <ul class="glide__slides h-[400px]">
+      {
+        petsAdoption.map((pet) => (
+          <li class="glide__slide bg-slate-950 bg-opacity-30 w-[300px] h-full">
+            <article>
+              <p class="text-center py-2">{pet.title}</p>
+              <div class="h-[250px] overflow-hidden">
+                <img
+                  class="glide__img w-full h-full object-cover"
+                  src={pet.src}
+                  alt=""
+                />
+              </div>
+              <div class="p-4">
+                <p class="pt-2">Vacunado: Si</p>
+                <p class="pt-2">Edad: aprox 4 años</p>
+              </div>
+            </article>
+          </li>
+        ))
+      }
+    </ul>
   </div>
-  <div>
-    <p>Holas</p>
-    <p>Holas</p>
-    <p>Holas</p>
+
+  <div
+    class="glide__arrows"
+    data-glide-el="controls"
+  >
+    <button
+      class="glide__arrow glide__arrow--left"
+      data-glide-dir="<"
+      ><span class="text-teal-500">prev</span>
+    </button>
+    <button
+      class="glide__arrow glide__arrow--right"
+      data-glide-dir=">"
+      ><span class="text-teal-500">next</span></button
+    >
   </div>
-</article>
+
+  <!-- <div
+    class="glide__bullets"
+    data-glide-el="controls[nav]"
+  >
+    {
+      petsAdoption.map((pet) => (
+        <button
+          class="glide__bullet"
+          data-glide-dir={`=${pet.id}`}
+        />
+      ))
+    }
+  </div> -->
+</div>
+<style>
+  /* .glide__bullet {
+    margin: 15px;
+    padding: 5px;
+  } */
+  .glide__img {
+    /* filter: blur(1px); */
+    opacity: 0.8;
+    transition: 0.3s linear;
+  }
+  .glide__img:hover {
+    opacity: 1;
+    /* filter: none; */
+    transform: scale(1.1);
+  }
+  .glide__img {
+    overflow: hidden;
+  }
+</style>
+
+<script>
+  import Glide from '@glidejs/glide';
+
+  new Glide('.glide', {
+    type: 'slider',
+    startAt: 0,
+    perView: 3,
+    gap: 40,
+    autoplay: 2000,
+    hoverpause: true,
+    swipeThreshold: 80,
+    // rewind: true,
+    // animationDuration: 1000,
+    rewindDuration: 2000,
+    animationTimingFunc: 'linear', // easy, easy-in, easy-out, easy-in-out, bounce
+    // peek: {
+    //   before: 100,
+    //   after: 50,
+    // },
+    breakpoints: {
+      1024: {
+        perView: 2,
+      },
+      600: {
+        perView: 1,
+      },
+    },
+  }).mount();
+</script>

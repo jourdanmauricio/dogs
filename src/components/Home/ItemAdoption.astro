@@ -1,0 +1,23 @@
+---
+interface Props {
+  image: string;
+  title: string;
+}
+
+const { image, title } = Astro.props;
+---
+
+<article>
+  <p class="text-center py-2">{title}</p>
+  <div class="h-[250px]">
+    <img
+      class="w-full h-full object-cover"
+      src={image}
+      alt=""
+    />
+  </div>
+  <div class="p-4">
+    <p class="pt-2">Vacunado: Si</p>
+    <p class="pt-2">Edad: aprox 4 años</p>
+  </div>
+</article>
